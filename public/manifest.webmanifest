@@ -1,7 +1,7 @@
 {
-  "name": "VerifyCard Age-Check Demo",
-  "short_name": "VerifyCard",
-  "description": "A fictional frontend-only age-check demonstration.",
+  "name": "CitizenCard Verify — Demo (Educational Clone)",
+  "short_name": "Verify Demo",
+  "description": "Demonstration — educational clone of the CitizenCard verify experience. Not affiliated with or endorsed by CitizenCard. No real verification is performed.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

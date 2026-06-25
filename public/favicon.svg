@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VerifyCard">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CitizenCard demo">
   <rect width="64" height="64" rx="12" fill="#25242c"/>
-  <path d="M18 18h28a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V22a4 4 0 0 1 4-4Z" fill="#f7f8fa"/>
-  <path d="M22 32h9l4-6 5 12 4-6h5" fill="none" stroke="#078dcc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="23" cy="25" r="3" fill="#39a57d"/>
+  <!-- Standing-person glyph: white body bar topped by a magenta head. -->
+  <rect x="28" y="28" width="8" height="26" rx="4" fill="#ffffff"/>
+  <circle cx="32" cy="18" r="7" fill="#d84b70"/>
 </svg>

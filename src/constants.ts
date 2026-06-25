@@ -1,25 +1,47 @@
-export const NAV_LINKS = [
-  'Home',
-  'Your ID Card',
-  'About',
-  'Discounts',
-  'Help',
-  'Verify Card',
-] as const;
+export interface NavItem {
+  /** Readable label; displayed uppercased via CSS. */
+  label: string;
+  /** Internal route path, or '#' for a placeholder destination. */
+  href: string;
+  /** True when href is a client-side route handled by react-router. */
+  isRoute?: boolean;
+  /** Drawer items that show an expand chevron in the real app. */
+  hasChevron?: boolean;
+  /** The currently-active nav item (Verify Card) — highlighted in blue. */
+  isActive?: boolean;
+}
 
-export const FOOTER_LINKS = [
-  'What is VerifyCard?',
-  'Apply Online',
-  'Discounts',
-  'Login / Register',
-  'Verify Card',
-] as const;
+export const NAV_LINKS: NavItem[] = [
+  { label: 'Home', href: '#' },
+  { label: 'Your ID Card', href: '#', hasChevron: true },
+  { label: 'About', href: '#', hasChevron: true },
+  { label: 'Discounts', href: '#' },
+  { label: 'Help', href: '#', hasChevron: true },
+  { label: 'Verify Card', href: '/', isRoute: true, hasChevron: true, isActive: true },
+];
 
-export const COOKIE_STORAGE_KEY = 'verifycard-cookie-preferences';
+export interface FooterLink {
+  label: string;
+  href: string;
+  isRoute?: boolean;
+}
 
-export const CHECK_TIMESTAMP = '25 Jun 2026 14:15';
+export const FOOTER_LINKS: FooterLink[] = [
+  { label: 'What is a CitizenCard?', href: '#' },
+  { label: 'Apply Online', href: '#' },
+  { label: 'SimpleSavings Discounts', href: '#' },
+  { label: 'Login | Register', href: '#' },
+  { label: 'Verify Card', href: '/', isRoute: true },
+];
 
-export const TOAST_MESSAGE = 'Demo action selected — no verification is performed.';
+export const COOKIE_STORAGE_KEY = 'citizencard-demo-cookie-preferences';
+
+export const TOAST_MESSAGE = 'Demonstration only — no real scanning is performed.';
+
+// Persistent, always-visible educational disclosure. Mirrored in the ribbon,
+// the page <meta name="description">, the README and the web manifest.
+export const DEMO_DISCLOSURE =
+  'Demonstration — educational clone. Not affiliated with or endorsed by CitizenCard. No real verification is performed.';
 
 export const COOKIE_SECTIONS = {
   necessary: {

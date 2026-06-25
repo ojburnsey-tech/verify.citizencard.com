@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="VerifyCard icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="CitizenCard demo icon">
   <rect width="512" height="512" rx="96" fill="#25242c"/>
-  <rect x="86" y="126" width="340" height="260" rx="36" fill="#ffffff"/>
-  <rect x="118" y="166" width="276" height="42" rx="12" fill="#5e6887"/>
-  <circle cx="156" cy="274" r="42" fill="#39a57d"/>
-  <path d="M226 284h72l33-54 43 98 32-50h28" fill="none" stroke="#078dcc" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M132 344c12-36 68-36 80 0" fill="none" stroke="#d84b70" stroke-width="22" stroke-linecap="round"/>
+  <rect x="96" y="150" width="320" height="212" rx="28" fill="#ffffff"/>
+  <!-- Standing-person glyph on the card: charcoal body bar, magenta head. -->
+  <rect x="240" y="236" width="32" height="96" rx="16" fill="#25242c"/>
+  <circle cx="256" cy="206" r="26" fill="#d84b70"/>
+  <rect x="150" y="300" width="212" height="14" rx="7" fill="#e1e5eb"/>
 </svg>

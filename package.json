@@ -1,5 +1,5 @@
 {
-  "name": "verifycard-age-check-demo",
+  "name": "citizencard-verify-demo",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -12,13 +12,14 @@
   },
   "dependencies": {
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-router-dom": "^7.18.0"
   },
   "devDependencies": {
     "@eslint/js": "latest",
-    "@vitejs/plugin-react": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
     "eslint": "latest",
     "eslint-plugin-react-hooks": "latest",
     "eslint-plugin-react-refresh": "latest",

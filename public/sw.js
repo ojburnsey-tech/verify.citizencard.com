@@ -1,4 +1,4 @@
-const CACHE_NAME = 'verifycard-demo-v1';
+const CACHE_NAME = 'citizencard-verify-demo-v2';
 const APP_SHELL = ['/', '/manifest.webmanifest', '/favicon.svg', '/icons/verifycard-icon.svg'];
 
 self.addEventListener('install', (event) => {

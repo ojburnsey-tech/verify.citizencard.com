@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { BrandWordmark } from './BrandWordmark';
 import { NAV_LINKS } from '../constants';
 
 interface HeaderProps {
@@ -8,12 +10,9 @@ export function Header({ onMenuClick }: HeaderProps) {
   return (
     <header className="site-header">
       <nav className="header-inner" aria-label="Primary navigation">
-        <a href="#top" className="brand" aria-label="VerifyCard home">
-          <span className="brand-mark" aria-hidden="true">
-            V
-          </span>
-          <span>VERIFYCARD</span>
-        </a>
+        <Link to="/" className="brand" aria-label="CitizenCard home">
+          <BrandWordmark className="brand-logo" decorative />
+        </Link>
 
         <button
           type="button"
@@ -28,13 +27,24 @@ export function Header({ onMenuClick }: HeaderProps) {
         </button>
 
         <div className="desktop-nav">
-          {NAV_LINKS.map((link) => (
-            <a key={link} href="#top">
-              {link}
-            </a>
-          ))}
-          <a className="desktop-login" href="#top">
-            Login / Register
+          {NAV_LINKS.map((link) =>
+            link.isRoute ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className={`desktop-nav-link ${link.isActive ? 'is-active' : ''}`}
+                aria-current={link.isActive ? 'page' : undefined}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a key={link.label} className="desktop-nav-link" href={link.href}>
+                {link.label}
+              </a>
+            ),
+          )}
+          <a className="desktop-login" href="#">
+            Login | Register
           </a>
         </div>
       </nav>
