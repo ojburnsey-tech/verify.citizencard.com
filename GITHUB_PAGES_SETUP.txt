@@ -1,0 +1,17 @@
+GITHUB PAGES SETUP - IMPORTANT
+
+This ZIP contains the corrected PROJECT FILES. It is not a website you can host by uploading the ZIP itself.
+
+1. Extract this ZIP to a folder on your computer.
+2. Open the extracted folder and upload its individual files and folders into the ROOT of your GitHub repository. Replace the old versions. Important: include the hidden .github directory (especially .github/workflows/deploy.yml).
+3. In your repository, go to Settings > Pages > Build and deployment. Set Source to GitHub Actions, NOT "Deploy from a branch".
+4. Push the changes to main/master. In the Actions tab, check the 'Deploy demo to GitHub Pages' workflow. It must show success before your site is ready.
+5. Open the Page URL from Settings > Pages. It is normally https://USERNAME.github.io/REPOSITORY/ .
+6. If you still see the old white page, refresh with Ctrl+Shift+R. If necessary, clear the site's browser data or unregister its old service worker.
+
+WHY THE ORIGINAL WAS BLANK
+- The original index.html points at /src/main.tsx. GitHub Pages serves files only; it cannot compile TSX.
+- The original ZIP had no GitHub Actions build/deploy workflow.
+- An old fixed ZIP file had been uploaded as a single file INSIDE the repository rather than extracting and committing its contents.
+
+THIS PROJECT IS A DEMONSTRATION ONLY. It does not verify real IDs and is not affiliated with CitizenCard.

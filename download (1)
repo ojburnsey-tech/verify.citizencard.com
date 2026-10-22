@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.log
+.env
+.env.*
+.chrome-test-profile/
+.tmp-viewport-checks/

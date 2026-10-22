@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="CitizenCard demo icon">
+  <rect width="512" height="512" rx="96" fill="#25242c"/>
+  <rect x="96" y="150" width="320" height="212" rx="28" fill="#ffffff"/>
+  <!-- Standing-person glyph on the card: charcoal body bar, magenta head. -->
+  <rect x="240" y="236" width="32" height="96" rx="16" fill="#25242c"/>
+  <circle cx="256" cy="206" r="26" fill="#d84b70"/>
+  <rect x="150" y="300" width="212" height="14" rx="7" fill="#e1e5eb"/>
+</svg>

@@ -31,25 +31,26 @@ npm run preview     # serve the production build
 
 ## Routes (client-side routing)
 
-Routing uses `react-router-dom`. The app is a single-page app, so the server must serve
-`index.html` for unknown paths (see *Deploy* below) or deep links will 404 on refresh.
+Routing uses `HashRouter` from `react-router-dom`, so public GitHub Pages URLs keep
+the route after `#` and do not require server rewrites. Locally, the same routes
+work as `http://localhost:5173/#/...`.
 
 | Route | Page |
 | --- | --- |
-| `/` | Verify form — card number, date of birth, name, Verify button |
-| `/verify/scan/:token` | Age & likeness result (the page the real QR codes open) |
-| `/verify/result/:token` | Full-check result — "This card is valid" / could-not-verify |
-| `/service-details` | Short explainer of the verify service |
+| `/#/` | Verify form — card number, date of birth, name, Verify button |
+| `/#/verify/scan/:token` | Age & likeness result (the page the real QR codes open) |
+| `/#/verify/result/:token` | Full-check result — "This card is valid" / could-not-verify |
+| `/#/service-details` | Short explainer of the verify service |
 | `*` | 404 / expired ("This check has expired or could not be found") |
 
 ### Sample links
 
 The mock dataset lives in [`src/data/sampleCards.ts`](src/data/sampleCards.ts). Example tokens:
 
-- `/verify/scan/019eff34-bbf0-789b-bcb2-45ba4b7d4acb` → Angela Greene, 18+
-- `/verify/result/019eff34-bbf0-789b-bcb2-45ba4b7d4acb` → "This card is valid"
-- `/verify/result/none` → "We could not verify this card"
-- `/verify/scan/<unknown>` → expired / 404 state
+- `/#/verify/scan/019eff34-bbf0-789b-bcb2-45ba4b7d4acb` → Angela Greene, 18+
+- `/#/verify/result/019eff34-bbf0-789b-bcb2-45ba4b7d4acb` → a simulated valid-result page
+- `/#/verify/result/none` → a simulated unmatched-result page
+- `/#/verify/scan/<unknown>` → expired / 404 state
 
 On the verify form, enter a sample card's number, date of birth and name (e.g. `5843 2166 1964
 2184`, `09 Nov 2002`, `Angela Greene`) to reach the valid result. Matching is entirely client-side
@@ -63,13 +64,35 @@ and is mock only.
    macOS/Linux).
 4. On your phone, open `http://YOUR_LOCAL_IP:5173`.
 
-## Deploy for a public browser link
+## Deploy to GitHub Pages (automatic)
 
-Because this is a single-page app with deep links, configure an SPA fallback so paths like
-`/verify/scan/:token` resolve on refresh. Both files are already included:
+No editing of paths or workflow variables is required. Vite uses relative asset URLs,
+while `HashRouter` preserves refreshable page URLs under *any* repository name.
+The built-in deployment workflow is in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
-- [`vercel.json`](vercel.json) rewrites everything to `/index.html`.
-- [`public/_redirects`](public/_redirects) does the same for Netlify (`/*  /index.html  200`).
+1. Upload **the contents of this project folder** to the root of a GitHub repository
+   (including the hidden `.github` folder). Do not upload only the ZIP as one file.
+2. In GitHub, open **Settings → Pages → Build and deployment**. Select
+   **Source: GitHub Actions**. Ensure Pages publishing is allowed for the repository.
+3. Push the code to the `main` (or `master`) branch. The **Deploy demo to GitHub Pages**
+   workflow should run under the **Actions** tab. You can also use **Run workflow** there.
+4. When the workflow completes successfully, find the URL in **Settings → Pages**.
+   A project repository will normally use `https://USERNAME.github.io/REPOSITORY/`.
+5. Internal routes use `#`, for example
+   `https://USERNAME.github.io/REPOSITORY/#/service-details`.
+
+**If an old version still appears:** hard-refresh the page or unregister the former service worker
+in browser DevTools → Application → Service Workers. This version scopes its service worker
+and cached assets to the repository, avoiding root-path errors.
+
+**Important:** This is an unaffiliated, frontend-only educational demonstration.
+It uses simulated verification results. It cannot check real CitizenCards and should not
+be used to verify identities or to collect real personal information.
+
+## Other static hosts
+
+Because the app uses `HashRouter`, it does not require SPA fallback rewrites.
+The existing `vercel.json` and `public/_redirects` remain for compatibility.
 
 ### Vercel
 

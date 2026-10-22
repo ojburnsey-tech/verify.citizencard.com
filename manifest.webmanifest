@@ -1,0 +1,18 @@
+{
+  "name": "CitizenCard Verify — Demo (Educational Clone)",
+  "short_name": "Verify Demo",
+  "description": "Demonstration — educational clone of the CitizenCard verify experience. Not affiliated with or endorsed by CitizenCard. No real verification is performed.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f8fa",
+  "theme_color": "#25242c",
+  "icons": [
+    {
+      "src": "./icons/verifycard-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

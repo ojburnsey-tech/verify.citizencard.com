@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CitizenCard demo">
+  <rect width="64" height="64" rx="12" fill="#25242c"/>
+  <!-- Standing-person glyph: white body bar topped by a magenta head. -->
+  <rect x="28" y="28" width="8" height="26" rx="4" fill="#ffffff"/>
+  <circle cx="32" cy="18" r="7" fill="#d84b70"/>
+</svg>
